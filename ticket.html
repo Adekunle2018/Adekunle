@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+     <style type="text/css">
+          
+                
+
+                .ticket{ width: 50%;
+                       height: 30vh;
+                       background-color:#8CC101;
+                       position: absolute;
+                       top: 300px;
+                        }
+
+                    #hall{position: absolute;
+                      top: 490px;
+                      
+                       background-color: blue;}
+
+               /*.welcome{width: 300px;*/
+                         /*height: 3px;*/
+                         /*color: red;*/
+                        /*position: absolute;*/
+
+                      /*}*/
+
+                      .vid{position: absolute;
+                           top: 60px;
+                            width: 800px;}
+                      body{background-image: url(tick.jpg);
+                          
+                           }
+
+
+
+     </style>
+
+
+     
+	<script type="text/javascript">
+      
+      var seat =[];  
+
+	function seatarranger()
+
+     			 { 
+     			 	 var seatt= as.value;
+
+     			 	  for (i=0; i<=seatt; i++)
+     			 	  {
+
+     			 	  	seat[i]="";
+     			 	  }
+     			 	 
+     			 	  arrangeseat()
+
+
+
+     			 }
+
+     			 function arrangeseat()
+
+
+
+     			 {
+     			 	var counter=0;
+     			 	
+     			 	var content="<table border=2 width=50% align=center><tr>";
+
+     			 	for (v = 1; v <seat.length; v++)
+
+     			 	 {
+
+     			 		content +="<td>"+"<img src=chair.jpg>"+seat[v]+"</td>";
+     			 		counter++;
+     			 		if (counter==10) {
+
+     			 			content+='</tr><tr>'
+     			 			counter=0;
+     			 		}
+     			 	}
+
+     			 	content +="</tr></table>";
+     			 	hall.innerHTML=content;
+
+     			 }
+
+     			 function seatallocator()
+
+     			 			{  
+
+                                        if (seat[sn.value]!="")
+                                   {
+
+                                   if( confirm('seat occupied,book another seat?'));
+
+                                   {
+                                        prompting=prompt('enter another number between 1 and'+as.value);
+
+                                        sn.value=prompting;
+                                        arrangeseat()
+                                   }
+
+
+                                   }
+
+
+     			 				seatNo=sn.value;
+     			 				viewer=vn.value;
+     			 				seat[seatNo]=viewer;
+     			 				arrangeseat()
+
+
+
+     			 			}
+
+	</script>
+
+	<title>cinema ticket</title>
+</head>
+<body>
+  
+     
+         <marquee direction="right"><h4 class="welcome"><font color="blue">WELCOME</font><font color="red"> TO</font><font color="green"> LAUTECH CINEMA</font></h4></marquee><br/>
+         <p></p>
+
+         <div class="vid">
+              <video  controls width="700px" height="240px">
+              <source src="C:\Users\Adekunleayandele\Desktop\web\images\brave.mp4">
+
+         </div>
+
+          <div class="ticket">
+
+<fieldset>
+	<legend>Arrange seat</legend>
+ <input type="text" name="" id="as">
+ <button onclick="seatarranger()">Arrange</button>
+
+</fieldset>
+
+<fieldset>
+	<legend>allocate seat</legend>
+	Seat No <input type="text" name="" id="sn">
+
+	<p>viewer name <input type="text" name="" id="vn"><br/></p>
+
+    <button onclick="seatallocator()">Allocate</button>
+
+</fieldset></div>
+<p>  
+<div id="hall"></div></p><br/>
+<p></p>
+
+ 
+
+
+</video>
+
+</body>
+</html>
