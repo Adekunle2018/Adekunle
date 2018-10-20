@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style type="text/css">
+	table{
+		width: 400px;
+		height: 200px;
+	}
+		
+	</style>
+
+
+	<script type="text/javascript">
+		
+		    
+		    		
+		function start(){
+			
+			micro.value++;
+		
+			 ade = setTimeout(start,10);
+
+			
+			if (micro.value>59) {sec.value++;
+			micro.value=0}
+			if (micro.value<=9) {micro.value = "0" + micro.value;}
+
+			if (sec.value>59) {min.value++;
+				sec.value=0}
+
+			
+			if (min.value>59) {hr.value++;
+			    min.value=0}
+			    
+		
+			
+			
+
+		}
+
+			function stop(){ 
+				// var a = setTimeout(start,1000);
+				clearTimeout(ade);
+			}
+
+			function reset(){
+				if ( micro.value>=0 && sec.value >=0 && min.value>=0 && hr.value>=0) {
+					micro.value="";
+					sec.value="";
+					min.value="";
+					hr.value="";
+
+				}
+				
+			}
+
+
+
+	</script>
+	<title></title>
+</head>
+<body>
+ <table border="3" align="center">
+ 	<tr><td colspan="4" align="center">STOP WATCH</td></tr>
+ 	<tr><td align="center"><input type="text" id="hr" placeholder="hr" name="" style="width: 60px; height: 60px; font-size: 50px; color: red"></td>
+ 		<td align="center"><input type="text" id="min" placeholder="Min" name="" style="width: 60px; height: 60px; font-size: 50px; color: red"></td>:
+ 		<td align="center"><input type="text" id="sec" placeholder="Sec" name="" style="width: 60px; height: 60px; font-size: 50px; color: red"></td>
+ 		<td align="center"><input type="text" id="micro" placeholder="micro" name="" style="width: 60px; height: 60px; font-size: 50px; color: red"></td>
+ 	</tr>
+ 	<tr><td colspan="2" align="center"><button onclick="start()" style=" font-size: 25px; color: blue;">start</button></td><td align="center"><button onclick="stop()" style="font-size: 25px; color: blue;">stop</button></td><td align="center"><button onclick="reset()" style="font-size: 25px; color: blue;">reset</button></td></tr>
+ 		
+ 			
+ 		
+ </table>
+ 
+</body>
+</html>
