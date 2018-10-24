@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script>
+	
+	
+		var temperatureOptions= "<option value=c>celcius</option><option value=k>kelvin</option><option value=f >farheint</option>";
+		
+		var timeOptions= "<option value=h>hours</option><option value=m>minutes</option><option value=s>seconds</option>";
+		
+		var massOptions= "<option value=g>grams</option><option value=kg>kilograms</option><option value=tons>tons</option>";
+		
+	   var distanceOptions="<option value=meter>meter</option><option value=kilo>kilometer</option><option value=miles>miles</option>";
+	
+	    function unitchanger()
+		
+		{ 
+		   var a= unit.value;
+		   if (a=='temperature')
+		   {
+			  dn1.innerHTML =temperatureOptions;
+			  dn2.innerHTML =temperatureOptions;
+		   }
+			   
+			    if(a=='mass')
+			   {
+				   dn1.innerHTML =massOptions;
+				   dn2.innerHTML =massOptions;
+			   }
+			   if (a=='distance')
+			   {
+				  dn1.innerHTML=distanceOptions;
+				  dn2.innerHTML=distanceOptions;
+				}
+				if (a=='time')
+				{
+					dn1.innerHTML=timeOptions;
+					dn2.innerHTML=timeOptions;
+				}
+		   
+		  
+		 	
+		}
+		function con()
+		{
+			ft = dn1.value;
+			st = dn2.value;
+			
+			if(ft == 'k' && st=='c')
+			{
+				cl.value= parseInt(kl.value) -273;
+			}
+			if(ft == 'c' && st == 'k')
+			{
+				cl.value = parseInt(kl.value) + 273;
+			}	
+			if (ft=='f' && st=='c')
+			{
+				cl.value= parseInt((kl.value)-32)*5/9;
+			}	 
+			if (ft=='f'&& st=='k')
+			   {
+				    cl.value=parseInt((kl.value)-32)*5/9+273.15;
+			   
+			   
+			   }
+			    if (ft=='c' && st=='f')
+				{
+					cl.value=parseInt((kl.value)*9)/5+32;
+				}
+				if (ft=='k'&& st=='f')
+				{
+					cl.value=parseInt((kl.value)-273.15)*9/5+32;
+				}
+				
+				
+				
+				if(ft=='kg' && st=='g')
+
+					{
+						cl.value=parseInt(kl.value)*1000;
+					}		
+		       if(ft=='g'&& st=='kg')
+			     { 
+				    cl.value=parseInt(kl.value)/1000;
+				 }
+					
+					if (ft=='kg' && st=='tons')
+					{
+						cl.value=parseInt(kl.value)/1000;
+						
+					}
+					
+					if (ft=='tons' && st=='kg')
+					{
+						cl.value=parseInt(kl.value)*1000;
+						
+					}
+				 if (ft=='g' && st=='tons')
+				 {
+					cl.value=parseInt(kl.value)*1000000; 
+				}
+				 
+				 if (ft=='tons' && st=='g')
+				 {
+					cl.value=parseInt(kl.value)/1000000; 
+				}
+		
+		       if(ft=='m' && st=='h')
+			   {
+				 cl.value=parseInt(kl.value)/60; 
+				}
+				if (ft=='m' && st=='s')
+				
+				{ cl.value=parseInt(k.value)*60;}
+				
+				if (ft=='s' && st=='m')
+				{cl.value=parseInt(kl.value)/60;}
+				
+				if (ft=='s' && st=='h')
+				{cl.value=parseInt=(kl.value)/3600;}
+				
+				if (ft=='h' && st=='m')
+				{cl.value=parseInt(kl.value)*60;}
+				
+				if (ft=='h' && st=='s')
+				{cl.value=parseInt(kl.value)*3600;}
+				
+				
+				
+				
+				 if(ft=='meter' && st=='kilo')
+			   {
+				 cl.value=parseInt(kl.value)/1000; 
+				}
+				if (ft=='kilo' && st=='meter')
+				
+				{ cl.value=parseInt(k.value)*1000;}
+				
+				if (ft=='kilo' && st=='miles')
+				{cl.value=parseInt(kl.value)/1.6;}
+				
+				if (ft=='miles' && st=='kilo')
+				{cl.value=parseInt=(kl.value)*1.6;}
+				
+				if (ft=='miles' && st=='meter')
+				{cl.value=parseInt(kl.value)*1609.34;}
+				
+				if (ft=='meter' && st=='miles')
+				{cl.value=parseInt(kl.value)/1609.34;}
+
+				
+				
+				
+		}    
+		
+		
+		
+	</script> 
+</head>
+<body>
+
+	<table align="center" border="3">
+     
+     
+		<tr><td><h2 style="color: blue" align="center">CONVERTER</h2></td></tr><br>
+        
+      <tr><td><select id="unit" onChange="unitchanger()">
+       <option value="temperature">TEMPERATURE</option>
+       <option value="distance">DISTANCE</option>   
+        <option value="mass">MASS</option>
+         <option value="time">TIME</option>
+       </select>
+      </td></tr>
+
+		<tr><td>
+			<select id="dn1">
+				
+                <option id="k1" value="k">Kelvin</option>
+				<option id="c1" value="c">Celcius</option>
+                <option id="fl" value="f">Fahreint</option>
+                
+                
+			</select>
+           <input type="text" name="kl" id="kl"></td></tr>
+
+		<tr><td>
+			<select id="dn2">
+				<option id="c" value="c">Celsius</option>
+				<option id="k" value="k">kelvin</option>
+                <option id="f" value="f">Fahreint</option>
+                </select>
+                <input type="text" name="cl" id="cl"></td></tr>
+           
+            
+	  	<tr><td><button onclick="con()"><h3 style="color:red" align="center"> CONVERT</h3></button></td></tr>
+	  	
+
+	</table>
+    
+
+</body>
+</html>
