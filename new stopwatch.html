@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>			
+			<style type="text/css">
+				
+			table{
+
+				width: 200px;
+				height: 200px;
+				background-color: orange;
+				font-size: 50px;
+				position: fixed;
+				border-radius: 10px;
+				
+			}
+
+
+			</style>
+	         <script type="text/javascript">
+	         	
+	         	function start() {
+	         		mil.innerHTML++;
+	         		ade = setTimeout(start,10);
+
+	         		if (mil.innerHTML >99) {
+	         			sec.innerHTML++;
+	         			mil.innerHTML = 0;
+	         		}
+
+	         		if (sec.innerHTML>59) {
+	         			min.innerHTML++;
+	         			sec.innerHTML=0;
+
+	         		}
+	         		
+	         		if (min.innerHTML>59) {
+	         			hr.innerHTML++;
+	         			min.innerHTML=0;
+	         		}
+
+
+	         	}
+
+
+
+	         	function stop(){
+	         		clearTimeout(ade);
+	         	}
+
+	         	function reset(){
+
+	         		if (mil.innerHTML>=0 && sec.innerHTML >=0 && min.innerHTML >=0 && hr.innerHTML >=0) {
+	         			mil.innerHTML= "00";
+	         			sec.innerHTML= "00";
+	         			min.innerHTML= "00";
+	         			hr.innerHTML="00";
+	         		}
+
+	         	}
+
+	         	function lap(){
+
+
+	         		lap1.innerHTML+=  hr.innerHTML + ":" + min.innerHTML + ":" + sec.innerHTML + "." + mil.innerHTML + "<br/>";
+	         	}
+
+	         	function startAndstop(){
+
+	         		if (starter.innerHTML == "start") {
+
+	         			starter.innerHTML = "stop";
+	         			start();
+	         		}
+	         		else{
+	         				starter.innerHTML = "start";
+	         				stop();
+	         		}
+	         	}
+
+
+
+	         </script>
+	<title></title>
+</head>
+<body>
+	<center>
+		
+		<table>
+			<tr><td colspan="6"><center>stopwatch</center></td></tr>
+			<tr><td id="hr">00</td><td>:</td><td id="min" style="margin-left: 40px">00</td><td>:</td><td id="sec">00</td><td>.</td><td id="mil" style="font-size: 30px">00</td> 
+			<tr><!-- <td><button onclick="start()">start</button><td><button onclick="stop()">stop</button> -->
+				<td><button onclick="startAndstop()" value="start" id="starter">start</button></td>
+				<td><button onclick="reset()">reset</button><td><button onclick="lap()">lap</button></td>
+			
+
+
+
+		</table>
+
+
+	</center>
+	<div id="lap1"></div>
+
+</body>
+</html>
