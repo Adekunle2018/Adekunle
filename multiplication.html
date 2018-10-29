@@ -10,12 +10,12 @@
 		 		var block = nb.value;
 		 		var line = nl.value;
 		 		var contain = "<table border=1><tr>";
-		 		var result = 0;
+		 		var result = "";
 		 		var start = sf.value;
 
 		 	 for (var i =start;   i<=block; i++) {
 		 	 	contain+="<td>"  + " Table " + i + "<br/>"
-
+ 
 		 	 	for (var v = 1; v<=line; v++) {
 
 		 	 		result = i * v; 
@@ -45,7 +45,7 @@
  Start from: <input type="text" name="" id="sf"><br/><p></p>
   <button onclick="generate()">generate</button>
 
-</fieldset>
+</fieldset> 
 <div id="display"></div>
 </body>
 </html>
